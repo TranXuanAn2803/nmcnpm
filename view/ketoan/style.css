@@ -1,0 +1,68 @@
+.container-fluid {
+    border-radius: 15px;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+
+}
+
+.col {
+    padding: 20px;
+    background: linear-gradient(180deg, #99fff1 0%, rgb(0, 200, 240) 100%);
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.col-3 {
+    width: 25%;
+    padding: 20px;
+    background: linear-gradient(180deg, #99fff1 0%, rgb(0, 200, 240) 100%);
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.container-body {
+    padding: 20px;
+}
+
+.row {
+    text-align: center;
+}
+
+.card {
+    background: #3388ff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+
+}
+
+.info-image {
+    border-radius: 50%;
+}
+
+.container-feature {
+    background: #2266ff;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.btn {
+    width: 90%;
+    margin: 5px;
+    border-radius: 15px;
+    background: #0099FF;
+}
+
+.search-container {
+    padding: 20px;
+    margin: 20px;
+}
+
+
+
+
+
+

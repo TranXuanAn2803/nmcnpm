@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h1>QUẢN LÝ CÁC ĐẠI LÝ</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container-body">
+        <div class="row">
+            <div class="col-3">
+                <div class="card">
+                    <img class="info-image" src="./info.jpg" alt="Info Avatar">
+                    <h4 style="margin-top: 10px;">Name</h4>
+                    <p>Quản lý</p>
+                </div>
+                <div class="container-feature">
+                    <button onclick="xem_hoso_daily()" class="btn btn-primary">Xem hồ sơ đại lý</button>
+                    <button onclick="xem_danhsach_daily()" class="btn btn-primary">Xem danh sách đại lý</button>
+                </div>
+            </div>
+            <div class="col">
+                <h1 id="title">THÔNG TIN HIỂN THỊ</h1>
+                <div class="search-container">
+                    <form action="/action_page.php">
+                      <input type="text" placeholder="Search.." name="search">
+                      <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                  </div>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/bootstrap.js"></script>
+    <script src="./quanly.js"></script>
+</body>
+</html>

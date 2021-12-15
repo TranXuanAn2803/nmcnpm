@@ -1,0 +1,69 @@
+
+.container-fluid {
+    border-radius: 15px;
+    padding: 20px;
+    margin: auto;
+
+}
+
+.col {
+    padding: 20px;
+    background: linear-gradient(180deg, #99fff1 0%, rgb(0, 200, 240) 100%);
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 15px;
+}
+
+
+.row {
+    text-align: center;
+    text-shadow: #fff;
+    
+}
+
+.row h1 {
+    color: aliceblue;
+    
+}
+
+.container {
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	background: aqua;
+	border-radius: 15px;
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+.container form {
+    padding: 40px;
+}
+.container h1 {
+    text-align: center;
+    padding-top: 20px;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn{
+    width: 50%;
+    margin-top: 20px;
+    border-radius: 8px;
+    
+}
+
+.lost-pass {
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+.lost-pass a {
+	color: #2691d9;
+	text-decoration: none;
+}
+
+.lost-pass a:hover {
+	text-decoration: underline;
+}
