@@ -1,0 +1,29 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <form action="/HangHoa/add" method="post" role="form" enctype="application/x-www-form-urlencoded">
+                <legend>Login</legend>
+                <p style="color: red">{{err}}</p>
+
+                <div class="form-group">
+                    <label for="Name">Name</label>
+                    <input type="text" class="form-control" name="Name" id="Name" required placeholder="User Name"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">Unit</label>
+                    <input type="text" class="form-control" name="Unit" id="Unit" required placeholder="User Name"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="last_name">Price</label>
+                    <input type="number" class="form-control" required data-parsley-min="6" name="Price" id="Price" placeholder="Password"/>
+                </div>
+     
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
