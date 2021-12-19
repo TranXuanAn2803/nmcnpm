@@ -10,11 +10,25 @@
             href="/style/login/main.css">
         <link rel="stylesheet" 
             href="/style/login/util.css">
+        <link rel="stylesheet" 
+            href="/public/css/style.css">
       
   </head>
   <body>
-    {{{body}}}
+    {{> topheader}}
+    <div class="container-body">
+        <div class="row">
+            <div class="col-3">
+                {{> leftbar}}
+            </div>
+            <div class="col">
+              {{{body}}}
+            </div>
+        </div>
+    </div>
+    
     <script src="/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
 
   </body>
 </html>
