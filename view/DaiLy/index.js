@@ -4,7 +4,10 @@ const router = express.Router()
 const DaiLy = require('../../controller/DaiLy.controller');
 
 router.get('/', function(req, res, next) {
-    res.render('DaiLy/DaiLy');
+    res.render('DaiLy/DaiLy', {
+        topheader: "topheader",
+        leftbar: "leftbar",
+    });
 
 });
 

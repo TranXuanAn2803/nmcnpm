@@ -1,5 +1,5 @@
 var express = require('express');
-var { engine } = require('hbs');
+var hbs = require('hbs');
 const path = require('path');
 const bp = require("body-parser");
 
@@ -9,6 +9,7 @@ var DaiLy = require('./view/DaiLy/index');
 var PhieuThu = require('./view/PhieuThu/index');
 var PhieuXuat = require('./view/PhieuXuat/index');
 var CT_PhieuXuat = require('./view/CT_PhieuXuat/index');
+hbs.registerPartials(__dirname + "/view/partials", function(err) {});
 
 var app = express();
 app.use(bp.json());
