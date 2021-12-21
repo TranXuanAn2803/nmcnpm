@@ -134,22 +134,7 @@ const deletePhieuThu = async(req, res) => {
         return res.status(500).send(error.message);
     }
 };
-const find = async(req, res) => {
-    try {
-        const result = await PhieuThu.findAll({
-            where: { DaiLy_ID: 3 },
-            raw: true
-        });
-        for (i in result)
-            console.log(result[i]);
 
-        return res.status(200).json({
-            result
-        });
-    } catch (error) {
-
-    }
-}
 module.exports = {
     createPhieuThu,
     getAllPhieuThu,

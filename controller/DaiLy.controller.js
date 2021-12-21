@@ -123,11 +123,22 @@ const deleteDaiLy = async(req, res) => {
             where: { Name: name },
         });
         if (daiLy && daiLy.dataValues.Debts == 0) {
+            const phieuXuat = await PhieuXuat.findAll({
+                where: { DaiLy_ID: daiLy.dataValues.DaiLy_ID },
+                raw: true
+            });
+            for (i in phieuXuat)
+                var deletedCT_PhieuXuat = await CT_PhieuXuat.destroy({ where: { PhieuXuat_ID: phieuXuat[i].dataValues.ID } });
+            if (deletedCT_PhieuXuat) {
+                const deletedPhieuXuat = await PhieuXuat.delete({ where: { DaiLy_ID: daiLy.dataValues.DaiLy_ID } })
+                const deletedPhieuThu = await PhieuThu.delete({ where: { DaiLy_ID: daiLy.dataValues.DaiLy_ID } })
+                if (deletedPhieuThu && deletedPhieuXuat) {
+                    const deleted = await DaiLy.destroy({ where: { Name: name } });
 
-            const deleted = await DaiLy.destroy({ where: { Name: name } });
-
-            if (deleted) {
-                return res.status(204).send("Deleted");
+                    if (deleted) {
+                        return res.status(204).send("Deleted");
+                    }
+                }
             }
 
         } else {
@@ -138,11 +149,37 @@ const deleteDaiLy = async(req, res) => {
         return res.status(500).send(error.message);
     }
 };
+const summarizePhieuXuat = async(req, res) => {
 
+    try {
+        const month = req.body.Month;
+
+        const result = await PhieuXuat.findAll({
+            attributes: [
+
+                'DaiLy_ID', [sequelize.fn('sum', sequelize.col('Total_Money')), 'Total_Money'],
+                [sequelize.fn('COUNT', 'ID'), 'count']
+            ],
+            where: {
+                $: [
+                    sequelize.where(sequelize.fn('month', sequelize.col("Date")), month)
+                ],
+            },
+            group: ['DaiLy_ID'],
+        });
+        return res.status(200).json({ result });
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+
+
+}
 module.exports = {
     createDaiLy,
     getAllDaiLy,
     getDaiLyById,
     updateDaiLy,
-    deleteDaiLy
+    deleteDaiLy,
+    summarizePhieuXuat,
+
 };

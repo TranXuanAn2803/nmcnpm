@@ -13,6 +13,5 @@ router.post('/add', PhieuThu.createPhieuThu);
 router.get('/:id', PhieuThu.getPhieuThuById);
 router.post('/update', PhieuThu.updatePhieuThu);
 router.post('/delete', PhieuThu.deletePhieuThu);
-router.get('/find/:id', PhieuThu.find);
 
 module.exports = router
