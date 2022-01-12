@@ -1,0 +1,59 @@
+CREATE TABLE `loai_daily` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(10) NOT NULL,
+  `Max_debt` int(11) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4
+CREATE TABLE `hanghoa` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) NOT NULL,
+  `Unit` varchar(30) NOT NULL,
+  `Price` int(10) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4
+CREATE TABLE `daily` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `Type` int(10) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Phone` char(10) DEFAULT NULL,
+  `District` varchar(30) NOT NULL,
+  `Address` varchar(100) DEFAULT NULL,
+  `Day` date DEFAULT NULL,
+  `Debts` int(20) NOT NULL,
+  `Email` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `Type` (`Type`),
+  CONSTRAINT `daily_ibfk_1` FOREIGN KEY (`Type`) REFERENCES `loai_daily` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4
+CREATE TABLE `phieuthu` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `DaiLy_ID` int(10) NOT NULL,
+  `Phone` char(10) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Address` varchar(100) DEFAULT NULL,
+  `Email` varchar(30) DEFAULT NULL,
+  `Total_Money` int(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `DaiLy_ID` (`DaiLy_ID`),
+  CONSTRAINT `phieuthu_ibfk_1` FOREIGN KEY (`DaiLy_ID`) REFERENCES `daily` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4
+CREATE TABLE `phieuxuat` (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `DaiLy_ID` int(10) NOT NULL,
+  `Date` date DEFAULT NULL,
+  `Total_Money` int(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `DaiLy_ID` (`DaiLy_ID`),
+  CONSTRAINT `phieuxuat_ibfk_1` FOREIGN KEY (`DaiLy_ID`) REFERENCES `daily` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4
+CREATE TABLE `ct_phieuxuat` (
+  `STT` int(10) NOT NULL AUTO_INCREMENT,
+  `PhieuXuat_ID` int(10) NOT NULL,
+  `HangHoa_Id` int(10) NOT NULL,
+  `Number` int(5) NOT NULL,
+  PRIMARY KEY (`STT`,`PhieuXuat_ID`),
+  KEY `HangHoa_Id` (`HangHoa_Id`),
+  KEY `PhieuXuat_ID` (`PhieuXuat_ID`),
+  CONSTRAINT `ct_phieuxuat_ibfk_1` FOREIGN KEY (`HangHoa_Id`) REFERENCES `hanghoa` (`ID`),
+  CONSTRAINT `ct_phieuxuat_ibfk_2` FOREIGN KEY (`PhieuXuat_ID`) REFERENCES `phieuxuat` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4
