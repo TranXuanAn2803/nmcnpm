@@ -1,0 +1,43 @@
+<div class="container center-block" style="width:500px">
+        {{#if message}}
+            <div class="alert alert-danger">
+               <div>{{message}}</div>
+            </div>
+        {{/if}}
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <form  action="/PhieuXuat/edit/{{ID}}" method="post">
+                        <div class="form-group">
+                                <label>Đại Lý</label>
+                                <input type="text" class="form-control" name="DaiLy_ID" readonly value={{DaiLy_ID}} />
+                        </div>
+                        <div class="form-group">
+                            <label>Ngày Xuất</label>
+                            <div>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="Date" required  value={{Date}} id="datepicker">
+                                    <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                                <label>Tổng Tiền</label>
+                                <input type="text" class="form-control" name="Total_Money" id="Total_Money" readonly value={{Total_Money}} />
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                    Submit
+                                </button>
+                                <button type="reset" class="btn btn-default waves-effect m-l-5">
+                                    Reset
+                                </button>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+</div>

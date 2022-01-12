@@ -1,0 +1,40 @@
+<div class="container">
+  <div style="display:flex; justify-content:flex-end">
+    <a href="/LoaiDaiLy/add" style="color:white;"><button
+        type="button"
+        class="btn btn-primary waves-effect waves-light"
+        style="margin-bottom: 10px;"
+      >Thêm Loại Đại Lý</button></a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-body">
+
+          <table
+            id="datatable-fixed-header"
+            class="table table-striped table-bordered"
+          >
+            <thead>
+              <tr>
+                <th class="text-center">Tên</th>
+                <th class="text-center">Tiền Nợ Tối Đa</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {{#each loaiDaiLy}}
+                <tr>
+                  <td> <a href="/LoaiDaiLy/{{ID}}">{{Name}}</a></td>
+                  <td> <a href="/LoaiDaiLy/{{ID}}">{{Max_debt}}</a></td>
+
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

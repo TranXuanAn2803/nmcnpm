@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="div" style="display: flex; flex-direction: row; justify-content:flex-end">
+        <div style="padding: 10px">
+            <a href="/HangHoa/edit/{{ID}}" style="color:white;">
+                <button type="button"class="btn btn-primary waves-effect waves-light" style="margin-bottom: 10px;">Sửa Thông Tin</button>
+            </a>
+        </div>
+        <div style="padding: 10px">
+            <a href="/HangHoa/delete/{{ID}}" style="color:white;">
+                <button type="button"class="btn btn-primary waves-effect waves-light" style="margin-bottom: 10px;">Xóa Hàng Hóa</button>
+            </a>
+        </div>
+</div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">Thông Tin Hàng Hóa</h2>
+        </div>
+        <div class="panel-body">
+        <h4>
+
+            <strong>ID:</strong>{{ID}}
+        </h4>
+
+        <h4>
+
+            <strong>Tên:</strong>{{Name}}
+        </h4>
+        <h4>
+
+            <strong>Đơn Vị:</strong>{{Unit}}
+        </h4>
+
+        <h4>
+
+            <strong>Giá:</strong>{{Price}}
+        </h4>
+        </div>
+
+    </div>
+    <div class="div" style="display: flex; flex-direction: row; justify-content:flex-start">
+        <div style="padding: 10px">
+            <a href="/HangHoa" style="color:white;">
+                <button type="button"class="btn btn-primary waves-effect waves-light" style="margin-bottom: 10px;">Back</button>
+            </a>
+        </div>
+    </div>

@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="div" style="display: flex; flex-direction: row; justify-content:flex-end">
+        <div style="padding: 10px">
+            <a href="/PhieuXuat/edit/{{ID}}" style="color:white;">
+                <button type="button"class="btn btn-primary waves-effect waves-light" style="margin-bottom: 10px;">Sửa Thông Tin</button>
+            </a>
+        </div>
+        <div style="padding: 10px">
+            <a href="/PhieuXuat/delete/{{ID}}" style="color:white;">
+                <button type="button"class="btn btn-primary waves-effect waves-light" style="margin-bottom: 10px;">Xóa Phiếu Xuất</button>
+            </a>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">Thông Tin Chi Tiết Phiếu Xuất</h2>
+        </div>
+        <div class="panel-body">
+        <h4>
+
+            <strong>ID:</strong>{{ID}}
+        </h4>
+
+        <h4>
+
+            <strong>Đại Lý:</strong>{{DaiLy_ID}}
+        </h4>
+        <h4>
+
+            <strong>Ngày Xuất:</strong>{{Date}}
+        </h4>
+        <h4>
+
+            <strong>Tổng Tiền:</strong>{{Total_Money}}
+        </h4>
+        </div>
+    </div>
+    <div style="display:flex; justify-content:flex-end">
+        <a href="/CT_PhieuXuat/add/{{ID}}" style="color:white;"><button
+            type="button"
+            class="btn btn-primary waves-effect waves-light"
+            style="margin-bottom: 10px;"
+        >Thêm Chi Tiết Phiếu Xuất</button></a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+
+            <table
+                id="datatable-fixed-header"
+                class="table table-striped table-bordered"
+            >
+                <thead>
+                <tr>
+                    <th class="text-center">Hàng Hóa</th>
+
+                    <th class="text-center" >Số Lượng</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each CT_PhieuXuat}}
+                    <tr>
+                        
+                    <td> <a href="/CT_PhieuXuat/{{PhieuXuat_ID}}/{{STT}}">{{HangHoa_ID}}</a></td>
+                    <td> <a href="/CT_PhieuXuat/{{PhieuXuat_ID}}/{{STT}}">{{Number}}</a></td>
+
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="div" style="display: flex; flex-direction: row; justify-content:flex-start">
+        <div style="padding: 10px">
+            <a href="/PhieuXuat" style="color:white;">
+                <button type="button"class="btn btn-primary waves-effect waves-light" style="margin-bottom: 10px;">Back</button>
+            </a>
+        </div>
+    </div>
+</div>
