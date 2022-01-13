@@ -30,12 +30,21 @@ const add = async(req, res) => {
 
     var debts = -parseFloat(phieuThu.Total_Money);
     daiLy = daiLy[0];
-    const updateDebt = await DaiLy.updateDebt(daiLy, debts)
-    if (updateDebt) {
-        service.addPhieuThu(phieuThu).then(res.redirect("/PhieuThu"))
-    } else {
-        res.redirect("/PhieuThu/add")
+    if(daiLy.Debts+debts>=0)
+    {
+        const updateDebt = await DaiLy.updateDebt(daiLy, debts)
+        if (updateDebt) {
+            service.addPhieuThu(phieuThu).then(res.redirect("/PhieuThu"))
+        } else {
+            res.redirect("/PhieuThu/add")
+        }
     }
+    else
+    {
+        res.redirect("/PhieuThu/add")
+
+    }
+
 };
 const detailPhieuThu = async(req, res) => {
     const id = req.params.ID;
@@ -87,7 +96,7 @@ const edit = async(req, res) => {
     var newDebt = parseFloat(daiLy.Debts) - parseFloat(old.Total_Money) + parseFloat(phieuThu.Total_Money)
     var maxDebt = parseFloat(loaiDaiLy.Max_debt)
         //service.updateDaiLy(daiLy).then(res.redirect('/DaiLy/' + daiLy.ID))
-    if (newDebt <= maxDebt) {
+    if (newDebt <= 0) {
         const updateDebt = await DaiLy.updateDebt(daiLy, debts)
         if (updateDebt) {
             service.updatePhieuThu(phieuThu).then(res.redirect("/PhieuThu/" + phieuThu.ID))
